@@ -1,0 +1,16 @@
+Practice only — not the official Coach-released challenge.
+Langfuse project: day13-k4-l3a-A202602521
+Trace ID: 7b257b79eb5942df612399fef3e0c8bc
+Session: practice-rag-slow-investigation
+Correlation ID: req-practice-slow01
+
+handle-chat-request (AGENT, 2.656 s)
+├── retrieve-context (TOOL, 2.502 s)
+└── generate-response (GENERATION, 0.154 s)
+    model: claude-sonnet-4-5
+    prompt: day13-chat version 1 (production)
+    usage: 40 input / 155 output tokens
+    cost: USD 0.002445
+    TTFT: 0.052 s
+
+The retrieval span accounts for the slow request. The practice incident was disabled after this request.

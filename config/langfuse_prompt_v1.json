@@ -1,0 +1,7 @@
+{
+  "name": "day13-chat",
+  "type": "text",
+  "prompt": "Feature={{feature}}\nDocs={{docs}}\nQuestion={{message}}",
+  "labels": ["baseline", "production"],
+  "commitMessage": "Baseline prompt for Day 13 lab"
+}

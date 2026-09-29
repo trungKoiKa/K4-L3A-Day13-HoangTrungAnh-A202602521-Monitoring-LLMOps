@@ -1,0 +1,7 @@
+{
+  "name": "day13-chat",
+  "type": "text",
+  "prompt": "Feature={{feature}}\nDocs={{docs}}\nQuestion={{message}}\nAnswer concisely using the retrieved context.",
+  "labels": ["candidate"],
+  "commitMessage": "Candidate concise-answer instruction"
+}

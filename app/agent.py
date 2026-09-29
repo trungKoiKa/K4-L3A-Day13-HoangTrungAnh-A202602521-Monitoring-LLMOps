@@ -28,7 +28,7 @@ class LabAgent:
         self.model = model
         self.llm = FakeLLM(model=model)
 
-    @observe(name="lab-agent-run", as_type="agent", capture_input=False, capture_output=False)
+    @observe(name="handle-chat-request", as_type="agent", capture_input=False, capture_output=False)
     def run(
         self,
         user_id: str,
@@ -41,7 +41,7 @@ class LabAgent:
         with propagate_attributes(
             user_id=hash_user_id(user_id),
             session_id=session_id,
-            tags=["lab", feature, self.model],
+            tags=["lab", f"feature:{feature}"],
             trace_name="day13-agent-request",
             environment=os.getenv("APP_ENV", "dev"),
             metadata={
@@ -51,6 +51,15 @@ class LabAgent:
             },
         ):
             started = time.perf_counter()
+            # The root agent observation becomes the trace's readable IO.
+            langfuse_client.update_current_span(
+                input={"message": summarize_text(message, max_len=1_000)},
+                metadata={
+                    "feature": feature,
+                    "model": self.model,
+                    "correlation_id": correlation_id,
+                },
+            )
             docs = retrieve(message)
             prompt = resolve_prompt(
                 langfuse_client,
@@ -58,6 +67,21 @@ class LabAgent:
                 docs=docs,
                 message=message,
                 enabled=tracing_enabled(),
+            )
+            with propagate_attributes(prompt=prompt.managed_prompt):
+                response = self.llm.generate(prompt.text)
+            quality_score = self._heuristic_quality(message, response.text, docs)
+            latency_ms = int((time.perf_counter() - started) * 1000)
+            cost_usd = self._estimate_cost(response.usage.input_tokens, response.usage.output_tokens)
+            langfuse_client.update_current_span(
+                output={"answer": summarize_text(response.text, max_len=1_000)},
+                metadata={
+                    "feature": feature,
+                    "model": self.model,
+                    "correlation_id": correlation_id,
+                    "quality_score": str(quality_score),
+                    "latency_ms": str(latency_ms),
+                },
             )
             langfuse_client.update_current_span(
                 metadata={
@@ -71,13 +95,6 @@ class LabAgent:
                 },
                 version=prompt.version,
             )
-            # TODO (CP2): instrument retrieve() and FakeLLM.generate() as child
-            # observations. The nested generation must receive prompt, usage and cost.
-            with propagate_attributes(prompt=prompt.managed_prompt):
-                response = self.llm.generate(prompt.text)
-            quality_score = self._heuristic_quality(message, response.text, docs)
-            latency_ms = int((time.perf_counter() - started) * 1000)
-            cost_usd = self._estimate_cost(response.usage.input_tokens, response.usage.output_tokens)
 
         metrics.record_request(
             latency_ms=latency_ms,

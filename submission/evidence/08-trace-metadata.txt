@@ -1,0 +1,7 @@
+Trace ID: dce1b68382e987937fb94a59f9c7210f
+Correlation ID: req-prompt-baseline
+Environment: dev
+Feature tag: feature:qa
+User identifier: hashed before tracing
+Prompt: day13-chat, version 1, label baseline
+Generation: claude-sonnet-4-5; usage 30 input / 166 output; cost USD 0.002580

@@ -1,0 +1,3 @@
+Structured application log excerpt after CP1:
+{"service":"api","event":"request_received","correlation_id":"req-finished01","user_id_hash":"616bb35d31d0","session_id":"session-clean","feature":"qa","model":"claude-sonnet-4-5","env":"dev","payload":{"message_preview":"Contact [REDACTED_PHONE_VN] and explain monitoring."}}
+{"service":"api","event":"response_sent","correlation_id":"req-finished01","latency_ms":1646,"ttft_ms":50,"tokens_in":40,"tokens_out":87,"cost_usd":0.001425,"quality_score":0.8,"tool_name":"retrieval","tool_success":true}

@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang='en'><head><meta charset='utf-8'><title>Day 13 Monitoring Dashboard</title>
+<style>
+body{font-family:Arial,sans-serif;background:#0b1020;color:#e5e7eb;margin:0;padding:32px} h1{margin:0} .meta{color:#9ca3af} .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:18px;margin-top:24px} .panel{background:#18213d;border:1px solid #334155;border-radius:12px;padding:18px} .panel.healthy{border-top:4px solid #22c55e} .panel.breach{border-top:4px solid #ef4444} .panel-title{display:flex;justify-content:space-between;align-items:center} h2{font-size:18px;margin:0} p{color:#a5b4fc;font-size:14px} .metric{display:flex;justify-content:space-between;border-top:1px solid #334155;padding:9px 0} .metric strong{color:#f8fafc} .badge{font-size:12px;text-transform:uppercase;padding:4px 8px;border-radius:12px;background:#334155} footer{margin-top:24px;color:#9ca3af;font-size:13px}
+</style></head><body>
+<h1>Day 13 Monitoring &amp; LLMOps</h1><p class='meta'>Source: data/logs.jsonl · time range: last 60 minutes · generated 2026-09-29T17:17:40+07:00</p>
+<div class='grid'>
+    <section class='panel breach'>
+      <div class='panel-title'><h2>Latency percentiles and TTFT</h2><span class='badge'>breach</span></div>
+      <p>SLO threshold: P95 ≤ 3000 ms</p><div class='metric'><span>P50</span><strong>2654 ms</strong></div><div class='metric'><span>P95</span><strong>3928 ms</strong></div><div class='metric'><span>P99</span><strong>3928 ms</strong></div><div class='metric'><span>TTFT P95</span><strong>52 ms</strong></div>
+    </section>
+
+    <section class='panel healthy'>
+      <div class='panel-title'><h2>Request traffic</h2><span class='badge'>healthy</span></div>
+      <p>Threshold: ≥ 1 request/minute</p><div class='metric'><span>Requests</span><strong>15</strong></div><div class='metric'><span>Rate</span><strong>1.5 req/min</strong></div>
+    </section>
+
+    <section class='panel healthy'>
+      <div class='panel-title'><h2>Error rate and retrieval success</h2><span class='badge'>healthy</span></div>
+      <p>Threshold: error rate ≤ 2%; retrieval success target ≥ 90%</p><div class='metric'><span>Error rate</span><strong>0.0%</strong></div><div class='metric'><span>Retrieval success</span><strong>100.0%</strong></div><div class='metric'><span>Failure breakdown</span><strong>none</strong></div>
+    </section>
+
+    <section class='panel healthy'>
+      <div class='panel-title'><h2>Cost over time</h2><span class='badge'>healthy</span></div>
+      <p>Window threshold: total cost ≤ $2.50</p><div class='metric'><span>Total</span><strong>$0.0298</strong></div><div class='metric'><span>Average/request</span><strong>$0.0020</strong></div>
+    </section>
+
+    <section class='panel healthy'>
+      <div class='panel-title'><h2>Input and output tokens</h2><span class='badge'>healthy</span></div>
+      <p>Window threshold: total tokens ≤ 50,000</p><div class='metric'><span>Input</span><strong>525</strong></div><div class='metric'><span>Output</span><strong>1,885</strong></div><div class='metric'><span>Total</span><strong>2,410</strong></div>
+    </section>
+
+    <section class='panel healthy'>
+      <div class='panel-title'><h2>Quality proxy</h2><span class='badge'>healthy</span></div>
+      <p>Threshold: mean quality score ≥ 0.75</p><div class='metric'><span>Mean quality</span><strong>0.84</strong></div><div class='metric'><span>Responses</span><strong>15</strong></div>
+    </section></div>
+<footer>Recent correlation IDs: req-3f6c1ef6, req-d27cf2bd, req-ed31e70d, req-48c8369a, req-db60c857</footer>
+</body></html>

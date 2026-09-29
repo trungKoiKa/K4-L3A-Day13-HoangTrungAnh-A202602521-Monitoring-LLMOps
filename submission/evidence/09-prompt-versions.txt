@@ -1,0 +1,7 @@
+Prompt: day13-chat (text)
+Version 1: labels baseline, production
+Template: Feature={{feature}} / Docs={{docs}} / Question={{message}}
+Version 2: label candidate
+Change: adds a concise-answer instruction using retrieved context.
+Baseline trace: dce1b68382e987937fb94a59f9c7210f
+Candidate trace: 9c28824630ab3d194f371ad46f88f9e1

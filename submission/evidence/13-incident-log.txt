@@ -1,0 +1,5 @@
+Official challenge log excerpt (payload/message preview omitted; see local data/logs.jsonl).
+Challenge ID: day13-k4-l3a-monitoring-llmops-v1
+Request event: ts=2026-09-29T10:10:46.254026Z event=request_received session_id=k4-l3a-challenge-s01 correlation_id=req-d27cf2bd feature=monitoring
+Response event: ts=2026-09-29T10:10:48.910528Z event=response_sent session_id=k4-l3a-challenge-s01 correlation_id=req-d27cf2bd latency_ms=2654 ttft_ms=50 tool_name=retrieval tool_success=true
+This correlation ID links both events to the Langfuse trace in 14-incident-trace.txt.

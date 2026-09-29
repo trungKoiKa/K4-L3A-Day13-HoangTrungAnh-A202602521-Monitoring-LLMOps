@@ -4,6 +4,12 @@ import os
 from contextlib import contextmanager
 from typing import Any
 
+from dotenv import load_dotenv
+
+# The Langfuse client reads its configuration during import/initialization.
+# Load a local development .env first, while leaving deployment-provided values intact.
+load_dotenv()
+
 try:
     from langfuse import get_client, observe, propagate_attributes
 

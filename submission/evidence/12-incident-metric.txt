@@ -1,0 +1,8 @@
+Official Coach-released challenge investigation (challenge ID: day13-k4-l3a-monitoring-llmops-v1)
+Time window (UTC): 2026-09-29T10:10:41.535Z to 2026-09-29T10:10:56.885Z
+Expected incident: rag_slow; affected feature: monitoring; challenge latency threshold: 2000 ms.
+Five challenge requests completed at concurrency 5. Server response latency (ms): 3928, 2654, 2654, 2654, 2653.
+P95 (nearest rank): 3928 ms; median: 2654 ms; mean: 2908.6 ms; range: 2653–3928 ms. All five exceed the 2000 ms challenge threshold.
+Normal-workload reference P95 before incident: 1646 ms. TTFT for affected requests: 50 ms each.
+All five response events report tool_success=true; failures were not observed.
+One request also showed a higher root latency (3928 ms); span-level follow-up is represented by the correlated trace in 14-incident-trace.txt. Evidence source: response_sent records in local data/logs.jsonl (challenge inputs are intentionally not reproduced here).

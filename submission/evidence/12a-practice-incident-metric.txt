@@ -1,0 +1,11 @@
+Practice only — not the official Coach-released challenge.
+Scenario: rag_slow
+Session: practice-rag-slow-investigation
+Window: 2026-09-29T08:17:01Z to 2026-09-29T08:17:04Z
+Request: req-practice-slow01
+HTTP status: 200
+Application latency: 2655 ms
+Client-observed latency: 2907.2 ms
+TTFT: 52 ms
+Normal workload reference P95 before incident: 1646 ms
+Observed practice request latency exceeded that reference; investigate the trace to localize the added time.

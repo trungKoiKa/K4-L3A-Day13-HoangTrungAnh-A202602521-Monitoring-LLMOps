@@ -1,0 +1,3 @@
+Test message: Contact 090 123 4567 and explain monitoring.
+Recorded message_preview: Contact [REDACTED_PHONE_VN] and explain monitoring.
+Validator result: Potential PII leaks detected: 0

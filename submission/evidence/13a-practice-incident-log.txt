@@ -1,0 +1,5 @@
+Practice only — not the official Coach-released challenge.
+Request event:
+{"service":"api","event":"request_received","feature":"monitoring","model":"claude-sonnet-4-5","env":"dev","user_id_hash":"91905baa675d","correlation_id":"req-practice-slow01","session_id":"practice-rag-slow-investigation","ts":"2026-09-29T08:17:01.474944Z"}
+Response event:
+{"service":"api","event":"response_sent","latency_ms":2655,"ttft_ms":52,"tokens_in":40,"tokens_out":155,"cost_usd":0.002445,"quality_score":0.8,"tool_name":"retrieval","tool_success":true,"feature":"monitoring","model":"claude-sonnet-4-5","env":"dev","user_id_hash":"91905baa675d","correlation_id":"req-practice-slow01","session_id":"practice-rag-slow-investigation","ts":"2026-09-29T08:17:04.131530Z"}
