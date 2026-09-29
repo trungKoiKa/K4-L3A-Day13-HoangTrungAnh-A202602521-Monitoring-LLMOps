@@ -8,7 +8,7 @@
 - **MSSV:** A202602521
 - **Lớp:** K4-L3A
 - **Repository URL:** https://github.com/trungKoiKa/K4-L3A-Day13-HoangTrungAnh-A202602521-Monitoring-LLMOps
-- **Commit SHA cuối:** Cập nhật SHA của commit nộp bài ngay trước khi push/LMS submission.
+- **Commit SHA cuối:** Nộp SHA của commit cuối đã push cùng URL repository trên VLearn LMS/Codelabs.
 - **Challenge ID:** `day13-k4-l3a-monitoring-llmops-v1` (challenge file giữ cục bộ, không commit).
 - **Tên project Langfuse cá nhân:** `day13-k4-l3a-A202602521`
 
@@ -25,10 +25,15 @@
 | Structured log | `evidence/04-structured-log.txt` |
 | PII redaction | `evidence/05-pii-redaction.txt` |
 | Trace list | `evidence/06-trace-list.txt` |
+| Trace list UI | `evidence/06-trace-list.png` |
 | Trace waterfall | `evidence/07-trace-waterfall.txt` |
+| Trace waterfall UI | `evidence/07-trace-waterfall.png` |
 | Trace metadata | `evidence/08-trace-metadata.txt` |
+| Trace metadata UI | `evidence/08-trace-metadata.png` |
 | Prompt versions | `evidence/09-prompt-versions.txt` |
+| Prompt versions UI | `evidence/09-prompt-versions.png` |
 | Prompt rollback | `evidence/10-prompt-rollback.txt` |
+| Prompt rollback UI | `evidence/10-prompt-rollback.png` |
 | Dashboard runtime | `evidence/11-dashboard-overview.png` (source: `evidence/11-dashboard-overview.html`) |
 | Practice incident metric | `evidence/12a-practice-incident-metric.txt` |
 | Practice incident log | `evidence/13a-practice-incident-log.txt` |
@@ -93,14 +98,14 @@
 - **Cách hiểu luồng Metrics → Logs → Traces:** Metric khoanh vùng thời gian/triệu chứng; log chọn request qua correlation ID; trace cùng ID chỉ ra observation gây ảnh hưởng.
 - **Vai trò của prompt version, token/cost, SLO hoặc rollback trong vận hành LLM:** Prompt version cho phép so sánh và rollback không deploy code; token/cost ở generation phục vụ theo dõi chi phí; SLO/alert biến triệu chứng thành hành động vận hành.
 - **Điều quan trọng nhất đã học:** Validator là gate kỹ thuật, nhưng evidence runtime và chuỗi điều tra nhất quán mới chứng minh hệ thống observability hoạt động.
-- **Hạn chế hoặc phần chưa hoàn thành, nếu có:** Ảnh dashboard runtime đã có; cần chụp thêm UI Langfuse cho trace list/waterfall/metadata và prompt versions/rollback để evidence nhìn thấy tên project cá nhân. CLI evidence text hiện đã lưu ID/metadata và truy vết challenge.
+- **Hạn chế hoặc phần chưa hoàn thành, nếu có:** Ảnh UI Langfuse cho trace list, waterfall, metadata, prompt versions và rollback đã được bổ sung; project name không hiển thị trong các ảnh này. CLI evidence text lưu ID/metadata và truy vết challenge.
 
 ## 9. Checklist trước khi nộp
 
 - [ ] Tạo commit cuối, cập nhật SHA ở Section 1 và nộp lên LMS/Codelabs.
 - [x] Evidence hiện có dùng đường dẫn tương đối.
 - [x] Hoàn thành incident evidence chính thức; practice evidence được giữ riêng.
-- [ ] Bổ sung ảnh chụp UI Langfuse cho trace list, waterfall, metadata và prompt/rollback.
+- [x] Bổ sung ảnh chụp UI Langfuse cho trace list, waterfall, metadata và prompt/rollback.
 - [x] Trace/prompt dùng project Langfuse cá nhân, không lưu key/secret trong evidence text.
 - [x] Repository đã chạy được theo README; test và validators có evidence.
 - [x] Không đưa `.env`, API key, PII thô hoặc evidence người khác vào artifact tạo mới.
